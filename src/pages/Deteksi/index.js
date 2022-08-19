@@ -266,8 +266,8 @@ const Deteksi = () => {
         <View style={styles.wrappContentModal}>
           <View style={styles.contentModal}>
             <Text style={styles.textTotalScore}>
-              {/* Total nilai dibagi jumlah pertanyaan ?? aku ga tau rumusan yang kamu mau */}
-              {answers.reduce((p, c) => p + c.nilai, 0) / answers.length}
+              {/* Total nilai */}
+              {answers.reduce((p, c) => p + c.nilai, 0)}
             </Text>
             <Text style={styles.textInfo}>Sedang</Text>
             <View style={{marginTop: 15}}>
