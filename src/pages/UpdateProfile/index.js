@@ -15,7 +15,8 @@ const UpdateProfile = ({ navigation }) => {
     fullName: '',
     profession: '',
     email: '',
-    photoDB: ''
+    photoDB: '',
+    age: ''
   })
   const [password, setPassword] = useState('')
   const [photo, setPhoto] = useState(ILNullPhoto)
@@ -131,6 +132,8 @@ const UpdateProfile = ({ navigation }) => {
               <Input label="Full Name" value={profile.fullName} onChangeText={(value) => changeText('fullName', value)} />
               <Gap height={24} />
               <Input label="Pekerjaan" value={profile.profession} onChangeText={(value) => changeText('profession', value)}/>
+              <Gap height={24} />
+              <Input label="Usia" value={profile.age} disable/>
               <Gap height={24} />
               <Input label="Email" value={profile.email} disable/>
               <Gap height={24} />

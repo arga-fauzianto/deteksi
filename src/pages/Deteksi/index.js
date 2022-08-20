@@ -269,7 +269,7 @@ const Deteksi = () => {
               {/* Total nilai */}
               {answers.reduce((p, c) => p + c.nilai, 0)}
             </Text>
-            <Text style={styles.textInfo}>Sedang</Text>
+            {/* <Text style={styles.textInfo}>Sedang</Text> */}
             <View style={{marginTop: 15}}>
               <Text
                 style={{

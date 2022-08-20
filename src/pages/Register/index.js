@@ -9,21 +9,23 @@ import { showMessage } from 'react-native-flash-message'
 
 
 const Register = ({navigation}) => {
-    const [age, setAge] = useState(18)
+    // const [age, setAge] = useState(18)
     const dispatch = useDispatch()
     const [form, setForm] = useForm({
         fullName: '',
         profession: '',
         email: '',
+        age: 18,
         password: '',
     })
 
     const onContinue = () => {
-        if (age > 18 ) {
+        // const age = 18;
+        if (form.age >= 18 ) {
            successReg();
         } else {
             showMessage({
-                message: 'Oops umur anda kurang dari 18 tahun',
+                message: 'Oops mohon maaf umur anda belum cukup',
                 type: 'default',
                 backgroundColor: colors.error,
                 color: colors.white
@@ -40,6 +42,7 @@ const Register = ({navigation}) => {
                 fullName: form.fullName,
                 profession: form.profession,
                 email: form.email,
+                age: form.age,
                 uid: success.user.uid,
             }
             Fire.database().ref('users/' +success.user.uid+ '/')
@@ -69,8 +72,8 @@ const Register = ({navigation}) => {
                 <Gap height={24}/>
                 <Input  
                  label="Usia"  
-                 value={age} 
-                 onChangeText={value => setAge(value)}
+                 value={form.age} 
+                 onChangeText={value => setForm('age', value)}
                 />
                 <Gap height={24} />
                 <Input 
