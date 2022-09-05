@@ -10,7 +10,7 @@ import { colors, fonts, showError } from '../../utils'
 
 const Doctor = ({navigation}) => {
   const [news, setNews] = useState([])
-  const [categoryDoctor, setCategoryDoctor] = useState([])
+  const [categoryPsikolog, setCategoryPsikolog] = useState([])
   const [doctors, setDoctors] = useState([]);
 
   useEffect(() => {
@@ -22,7 +22,7 @@ const Doctor = ({navigation}) => {
 
   const getRateDoctors = () => {
     Fire.database()
-    .ref('doctors/')
+    .ref('psikologs/')
     .orderByChild('rate')
     .limitToLast(3)
     .once('value')
@@ -44,11 +44,11 @@ const Doctor = ({navigation}) => {
   }
 
   const getCategoryDoctor = () => {
-    Fire.database().ref('category_doctor/').once('value').then(res => {
+    Fire.database().ref('category_psikolog/').once('value').then(res => {
       if(res.val()){
         const data = res.val()
         const filterData = data.filter(el => el !== null);
-        setCategoryDoctor(filterData)
+        setCategoryPsikolog(filterData)
       }
     }).catch(err => {
       showError(err.message)
@@ -80,7 +80,7 @@ const Doctor = ({navigation}) => {
                 <ScrollView horizontal showsHorizontalScrollIndicator={false}>
                   <View style={styles.category}>
                     <Gap width={32} />
-                    {categoryDoctor.map(item => {
+                    {categoryPsikolog.map(item => {
                       return <DoctorCategory 
                       key={item.id} 
                       category={item.category} 

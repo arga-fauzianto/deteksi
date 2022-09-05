@@ -10,12 +10,12 @@ const ChooseDoctor = ({navigation, route}) => {
 	const [listDoctor, setListDoctor] = useState([])
 	const itemCategory = route.params;
 	useEffect(() => {
-	 callDoctorByCategory(itemCategory.category)
+	 callDoctorByCategory(itemCategory.category_psikolog)
 	}, [])
 
-	const callDoctorByCategory = (category) => {
+	const callDoctorByCategory = (category_psikolog) => {
 
-		Fire.database().ref('doctors/').orderByChild('category').equalTo(category).once('value').then(res => {
+		Fire.database().ref('psikologs/').orderByChild('category_psikolog').equalTo(category_psikolog).once('value').then(res => {
 			if(res.val()) {
 				const data = []
 				const oldData = res.val()
@@ -37,16 +37,16 @@ const ChooseDoctor = ({navigation, route}) => {
     		<View style={styles.page}>
 				<Header 
 				type="dark" 
-				title={`Pilih ${itemCategory.category}`} 
+				title={`Pilih ${itemCategory.category_psikolog}`} 
 				onPress={() => navigation.goBack()}
 				/>
 				{listDoctor.map(doctor => {
 				 return	<List 
-				    key={doctor.id}
+				    key={psikolog.id}
 					type="next" 
-					profile={{uri: doctor.data.photo}}
-					name={doctor.data.fullName}
-					desc={doctor.data.gender}
+					profile={{uri: psikolog.data.photo}}
+					name={psikolog.data.fullName}
+					desc={psikolog.data.gender}
 					onPress={() => navigation.navigate('DoctorProfile', doctor)} 
 					/>
 

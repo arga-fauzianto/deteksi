@@ -16,53 +16,56 @@ import {useNavigation} from '@react-navigation/native';
 
 const allQuestions = [
   {
-    question: 'merasa kesal sesuatu terjadi secara tidak terduga?',
+    question: 'Merasa kesal karna sesuatu terjadi secara tidak terduga?',
   },
 
   {
-    question: 'merasa tidak bisa mesngendalikan hal-hal penting dalam hidupmu?',
+    question: 'merasa tidak dapat mengendalikan hal-hal penting dalam hidup?',
   },
 
   {
-    question: 'merasa gelisah dan stress?',
+    question: 'merasa gelisah dan stres?',
   },
 
-  // {
-  //   question: 'merasa kesal sesuatu terjadi secara tidak terduga'
-  // },
+  {
+    question: 'merasa yakin terhadap kemampuanmu dalam menangani masalah pribadi?'
+  },
 
-  // {
-  //   question: 'merasa kesal sesuatu terjadi secara tidak terduga'
-  // },
+  {
+    question: 'merasa yakin bahwa segala sesuatu berjalan sesuai keinginanmu?'
+  },
 
-  // {
-  //   question: 'merasa kesal sesuatu terjadi secara tidak terduga'
-  // },
+  {
+    question: 'menemukan bahwa kamu tidak dapat mengatasi segala hal yang harus dilakukan?'
+  },
 
-  // {
-  //   question: 'merasa kesal sesuatu terjadi secara tidak terduga?'
-  // },
+  {
+    question: 'mampu mengendalikan hal-hal penting dalam mengganggu dalam kehidupan ?'
+  },
 
-  // {
+  {
 
-  //   question: 'merasa tidak bisa mesngendalikan hal-hal penting dalam hidupmu?'
-  // },
+    question: 'merasa dapat mengendalikan hal-hal dalam hidupmu?'
+  },
 
-  // {
-  //   question: 'merasa gelisah dan stress?'
-  // },
+  {
+    question: 'merasa marah karna hal-hal terjadi diluar kendalimu ?'
+  },
+    {
+    question: 'merasa kesulitanmu sangat banyak, sehingga kamu tidak mampu mengatasinya ?'
+  },
 
-  // {
-  //   question: 'merasa kesal sesuatu terjadi secara tidak terduga'
-  // },
+  {
+    question: 'merasa kesal sesuatu terjadi secara tidak terduga'
+  },
 
-  // {
-  //   question: 'merasa kesal sesuatu terjadi secara tidak terduga'
-  // },
+  {
+    question: 'merasa kesal sesuatu terjadi secara tidak terduga'
+  },
 
-  // {
-  //   question: 'merasa kesal sesuatu terjadi secara tidak terduga'
-  // }
+  {
+    question: 'merasa kesal sesuatu terjadi secara tidak terduga'
+  }
 ];
 
 const Answer = [
@@ -242,7 +245,7 @@ const Deteksi = () => {
         icon="dark"
         title="Deteksi Dini"
         color="dark"
-        onPress={handleBack}
+        onPress={() => navigation.goBack()}
       />
 
       {/* Progress bar  */}
@@ -280,6 +283,21 @@ const Deteksi = () => {
                 Sepertinya kamu sudah menangani masalah sudah sangat baik,
                 tetapi jika ada kendala sebaiknya kamu konsultasi pada ahlinya
               </Text>
+              <View style={styles.wrappIndicator}>
+                <Text style={styles.titleLevel}>Perhitungan level</Text>
+                <View style={{flexDirection: 'row'}}>
+                  <View style={{width: 30, height: 30, backgroundColor: '#ADB821', marginTop: 15, borderRadius: 4}} />
+                  <Text style={{left: 12, top: 25, fontFamily: fonts.primary[400]}}>0-13-Rendah</Text>
+                </View>
+                <View style={{flexDirection: 'row'}}>
+                  <View style={{width: 30, height: 30, backgroundColor: '#F3E539', marginTop: 15, borderRadius: 4}} />
+                  <Text style={{left: 12, top: 25, fontFamily: fonts.primary[400]}}>14-26-Sedang</Text>
+                </View>
+                <View style={{flexDirection: 'row', position: 'absolute', left: 200, top: 35}}>
+                  <View style={{width: 30, height: 30, backgroundColor: '#EF463E', marginTop: 15, borderRadius: 4}} />
+                  <Text style={{left: 12, top: 25, fontFamily: fonts.primary[400]}}>27-40-Tinggi</Text>
+                </View>
+              </View>
               <View
                 style={{
                   flexDirection: 'row',
@@ -294,6 +312,7 @@ const Deteksi = () => {
                       color: colors.text.textRiset,
                       fontFamily: fonts.primary[400],
                       fontSize: 14,
+                      marginBottom: 20
                     }}>
                     Chat Dengan Psikolog
                   </Text>
@@ -304,6 +323,7 @@ const Deteksi = () => {
                     flexDirection: 'row',
                     alignItems: 'center',
                     marginRight: 10,
+                    marginBottom:20
                   }}>
                   <Image source={ICRestart} style={{width: 14, height: 14}} />
                   <Text
@@ -376,6 +396,7 @@ const styles = StyleSheet.create({
 
   contentModal: {
     width: '95%',
+    height: '38%',
     backgroundColor: 'white',
     borderRadius: 5,
     padding: 23,
@@ -405,4 +426,16 @@ const styles = StyleSheet.create({
     padding: 15,
     borderRadius: 5,
   },
+
+  //wrap style indicator
+
+  wrappIndicator: {
+    flex: 1,
+  },
+  titleLevel: {
+    fontFamily: fonts.primary[600],
+    fontSize: 20,
+    color: colors.primary,
+    marginTop: 12
+  }
 });
